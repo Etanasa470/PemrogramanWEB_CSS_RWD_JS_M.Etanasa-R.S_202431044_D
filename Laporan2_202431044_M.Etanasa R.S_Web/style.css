@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* =========================================
+   TEMA WARNA: LAKI-LAKI NIM GENAP -> HIJAU
+   ========================================= */
+
+body.theme-hijau.neat-mode {
+    background-color: #e6f4ea; /* hijau muda, bukan putih/hitam */
+    color: #102a12;
+}
+
+body.theme-hijau.neat-mode .top-identity {
+    background-color: #1b5e20;
+    color: #f1f8e9;
+}
+
+body.theme-hijau.neat-mode .container {
+    background-color: rgba(241, 248, 233, 0.95);
+}
+
+/* Mode rapi: tampilan nyaman */
+.neat-mode .issue,
+.neat-mode .card {
+    background-color: #ffffffcc;
+    border: 1px solid #c8e6c9;
+    border-radius: 12px;
+}
+
+/* =========================================
+   MODE BERANTAKAN
+   ========================================= */
+
+body.theme-hijau.messy-mode {
+    background-color: #9cff00; /* cerah & aneh, tapi bukan putih/hitam */
+    color: #ff00ff;
+}
+
+body.theme-hijau.messy-mode .top-identity {
+    background-color: #ff5722;
+    color: #ffff00;
+}
+
+body.theme-hijau.messy-mode .container {
+    background-color: rgba(0, 255, 255, 0.6);
+}
+
+body.theme-hijau.messy-mode .issue {
+    background: repeating-linear-gradient(
+        45deg,
+        #ffeb3b,
+        #ffeb3b 5px,
+        #f44336 5px,
+        #f44336 10px
+    );
+    border-radius: 0;
+    border: 3px dashed #0000ff;
+}
+
+body.theme-hijau.messy-mode .judul-masalah {
+    color: #0000ff;
+    text-shadow: 2px 2px #ffeb3b;
+}
+
+body.theme-hijau.messy-mode button {
+    background-color: #0000ff;
+    color: #ffeb3b;
+}
+
+/* =========================================
+   LAYOUT UMUM
+   ========================================= */
+
+.top-identity {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.top-identity h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.top-identity p {
+    font-size: 0.95rem;
+}
+
+.container {
+    max-width: 960px;
+    margin: 1.5rem auto 2rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.intro h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.intro p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.issues {
+    margin-bottom: 1.5rem;
+}
+
+.issue {
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neat-mode .issue:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.judul-masalah {
+    cursor: pointer;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.penjelasan {
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.actions button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+/* Tombol mode rapi (default) */
+.neat-mode .actions button {
+    background-color: #2e7d32;
+    color: #f1f8e9;
+    box-shadow: 0 3px 8px rgba(46, 125, 50, 0.4);
+}
+
+.neat-mode .actions button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(46, 125, 50, 0.5);
+}
+
+/* =========================================
+   HALAMAN GAMBAR (CARD RESPONSIVE)
+   ========================================= */
+
+.cards {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Mobile: 1 kolom */
+@media (max-width: 600px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet: 2 kolom */
+@media (min-width: 600px) and (max-width: 992px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop: 3 kolom */
+@media (min-width: 992px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    padding: 0.8rem;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   RESPONSIVE UMUM
+   ========================================= */
+
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .top-identity h1 {
+        font-size: 1.3rem;
+    }
+}
